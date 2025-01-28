@@ -5,6 +5,7 @@ import userRouter from "./routes/user.route.js";
 import cookieParser from "cookie-parser";
 import {admin, buildAdminRouter} from "./admin/setup.js";
 import {PORT} from "./config/config.js";
+import categoryRouter from "./routes/category.route.js";
 
 
 dotenv.config();
@@ -21,7 +22,8 @@ const start = async () => {
     app.use(admin.options.rootPath, router);
 
     app.use('/api/auth', authRouter)
-    app.use('/api/user', userRouter)
+    app.use('/api/users', userRouter)
+    app.use('/api/categories', categoryRouter)
 
     app.get('/health', (_req, res) => {
         res.status(200).send('Server running!');
