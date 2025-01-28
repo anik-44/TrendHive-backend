@@ -7,7 +7,7 @@ export default [
     {
         files: ["**/*.js"],
         languageOptions: {
-            sourceType: "commonjs",
+            sourceType: "module",
             globals: {
                 ...globals.node,
             },
@@ -18,26 +18,22 @@ export default [
         },
         rules: {
             '@stylistic/js/indent': [
-                'error',
-                2
+                'warn',
+                4
             ],
             '@stylistic/js/linebreak-style': [
-                'error',
+                'warn',
                 'unix'
             ],
             '@stylistic/js/quotes': [
-                'error',
-                'single'
+                'warn',
+                'double'
             ],
             '@stylistic/js/semi': [
-                'error',
                 'never'
             ],
             'eqeqeq': 'error',
             'no-trailing-spaces': 'error',
-            'object-curly-spacing': [
-                'error', 'always'
-            ],
             'arrow-spacing': [
                 'error', {'before': true, 'after': true},
             ],
