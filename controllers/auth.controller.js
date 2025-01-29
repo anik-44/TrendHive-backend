@@ -31,7 +31,7 @@ export const registerHandler = async (req, res) => {
             },
         });
 
-        return res.status(202).json({
+        return res.status(201).json({
             id: newUser.id, name: newUser.name, email: newUser.email,
         });
     } catch (error) {
@@ -68,7 +68,7 @@ export const loginHandler = async (req, res) => {
         await storeRefreshToken(user.id, refreshToken);
         setCookies(res, accessToken, refreshToken);
 
-        return res.status(201).json({
+        return res.status(200).json({
             message: 'Login successful', user: {
                 id: user?.id, name: user?.name, email: user?.email,
             }, // data: {

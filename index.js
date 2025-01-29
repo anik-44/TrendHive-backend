@@ -6,6 +6,8 @@ import cookieParser from "cookie-parser";
 import {admin, buildAdminRouter} from "./admin/setup.js";
 import {PORT} from "./config/config.js";
 import categoryRouter from "./routes/category.route.js";
+import cartRouter from "./routes/cart.route.js";
+import {unknownEndpoint} from "./middleware/index.js";
 
 
 dotenv.config();
@@ -24,10 +26,14 @@ const start = async () => {
     app.use('/api/auth', authRouter)
     app.use('/api/users', userRouter)
     app.use('/api/categories', categoryRouter)
+    app.use('/api/cart', cartRouter)
 
     app.get('/health', (_req, res) => {
         res.status(200).send('Server running!');
     });
+
+    app.use('*', unknownEndpoint)
+
 
     app.listen(PORT, () => {
         console.log(`Server running on port ${PORT}`);

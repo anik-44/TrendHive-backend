@@ -3,15 +3,13 @@ import session from 'express-session'
 import prisma from "../db/prisma.js";
 
 export const authenticate = async (email, password) => {
-    console.log(email, password);
     if (email && password) {
         const user = await prisma.user.findUnique({where: {email: email}});
-        console.log(user)
 
         if (!user) {
             return null;
         }
-        
+
         if (user?.password === password && user?.role === 'Admin') {
             return Promise.resolve(user)
         } else {
