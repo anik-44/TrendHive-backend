@@ -14,7 +14,8 @@ export const getCategories = async (req, res) => {
 export const getProducts = async (req, res) => {
   const page = Number(req.query.page) || 1;
   const pageSize = Number(req.query.pageSize) || 10;
-  const { categoryId } = req.params;
+  const { category } = req.params;
+  console.log(category)
   const skip = (page - 1) * pageSize;
   const take = pageSize;
 
@@ -23,7 +24,7 @@ export const getProducts = async (req, res) => {
       skip,
       take,
       where: {
-        categoryId,
+        categoryId: category,
       },
     });
     res.status(200).json({
