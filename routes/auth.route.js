@@ -1,10 +1,11 @@
-import { Router } from 'express';
+import {Router} from 'express';
 import {
-  loginHandler,
-  logoutHandler,
-  registerHandler,
-  refreshToken,
+    loginHandler,
+    logoutHandler,
+    registerHandler,
+    refreshToken,
 } from '../controllers/auth.controller.js';
+
 const authRouter = Router();
 
 authRouter.post('/register', registerHandler);

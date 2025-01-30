@@ -28,6 +28,6 @@ export const protectRoute = async (req, res, next) => {
             throw error;
         }
     } catch (error) {
-        return res.status(401).json({message: "Unauthorized - Invalid access token"});
+        return res.status(401).json({message: "Unauthorized - Invalid access token", error});
     }
 };

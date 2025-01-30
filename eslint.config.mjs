@@ -26,11 +26,10 @@ export default [
                 'unix'
             ],
             '@stylistic/js/quotes': [
-                'warn',
-                'double'
+                'off',
             ],
             '@stylistic/js/semi': [
-                'never'
+                'off'
             ],
             'eqeqeq': 'error',
             'no-trailing-spaces': 'error',
