@@ -8,15 +8,21 @@ import {PORT} from "./config/config.js";
 import categoryRouter from "./routes/category.route.js";
 import cartRouter from "./routes/cart.route.js";
 import {unknownEndpoint} from "./middleware/index.js";
-
+import cors from 'cors';
 
 dotenv.config();
+
+const corsOptions = {
+    origin: process.env.ORIGIN,
+    credentials: true,
+}
 
 const start = async () => {
     const app = express();
 
     app.use(express.json());
     app.use(cookieParser());
+    app.use(cors(corsOptions))
 
     const appRouter = express.Router();
     const router = buildAdminRouter(appRouter);
