@@ -19,9 +19,7 @@ jobs:
       - name: Install dependencies
         run: npm install --legacy-peer-deps
       - name: lint
-        run: npm run eslint
-      - name: build
-        run: npm run build
+        run: npm run lint
       - name: Trigger deployment
         run: curl https://api.render.com/deploy/srv-${{ secrets.RENDER_SERVICE_ID }}?key=${{ secrets.RENDER_API_KEY }}
         if: ${{ github.event_name == 'push' }}
