@@ -9,6 +9,7 @@ import categoryRouter from "./routes/category.route.js";
 import cartRouter from "./routes/cart.route.js";
 import {unknownEndpoint} from "./middleware/index.js";
 import cors from 'cors';
+import orderRouter from "./routes/order.routes.js";
 
 dotenv.config();
 
@@ -33,6 +34,7 @@ const start = async () => {
     app.use('/api/users', userRouter)
     app.use('/api/categories', categoryRouter)
     app.use('/api/cart', cartRouter)
+    app.use('/api/orders/',orderRouter)
 
     app.get('/health', (_req, res) => {
         res.status(200).send('Server running!');
